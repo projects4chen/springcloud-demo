@@ -1,6 +1,11 @@
 server:
   port: 9000
 
+# 开启降级
+feign:
+  circuitbreaker:
+    enabled: true
+
 # Eureka配置
 eureka:
   client:
