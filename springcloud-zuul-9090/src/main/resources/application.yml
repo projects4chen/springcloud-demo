@@ -1,0 +1,23 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: springcloud-zuul
+
+# Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/, http://localhost:7002/eureka/, http://localhost:7003/eureka/
+  instance:
+    instance-id: zuu.com
+    prefer-ip-address: true
+info:
+  app.name: springcloud-demo
+  company.name: chen
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-dept
+    mydept.path: /mydept/**
+  ignored-services: springcloud-provider-dept # 不能再使用这个路径访问了
+  prefix: /public # 设置公共前缀
